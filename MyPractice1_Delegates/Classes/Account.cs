@@ -1,6 +1,7 @@
 ﻿// Declare a delegate as a container for a method - reference for crossplatform of the algorithm.
 // A container for the method what gets string input parameter and returns no value.
-delegate void ClassDelegate(string message);
+delegate void Delegate(string message);
+delegate void Delegate2();
 
 class Account
 {
@@ -12,28 +13,26 @@ class Account
     // to as a callable entity.
     #endregion
 
-    // Instance the the delegate ClassDelegate as _myDelegate.
-    ClassDelegate? _myDelegate;
+    // Instance the the delegate Delegate as _myDelegate.
+    Delegate? _myDelegate;
 
-    // Declare the public method ClassDelegate() for assigning
-    // this platform method into the instance of delegate ClassDelegate.
-    public void AddMethod(ClassDelegate showMessage)
+    // Declare the public method Delegate() for assigning
+    // this platform method into the instance of delegate data structure Delegate.
+    public void AddMethod(Delegate showMessage)
     {
         _myDelegate += showMessage;
     }
-    public void SubMethod(ClassDelegate showMessage)
+    public void SubMethod(Delegate showMessage)
     {
         if (_myDelegate != null)
         {
-            _myDelegate  -= showMessage;
+            _myDelegate -= showMessage;
         }
-        
     }
 
     // Call method placed in the instance of delegate ClassDelegate.
     public void ShowMessage(string str)
     {
-
         _myDelegate!(str);
     }
 }
