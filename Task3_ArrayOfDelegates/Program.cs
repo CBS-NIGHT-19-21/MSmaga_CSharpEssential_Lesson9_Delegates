@@ -15,11 +15,11 @@
             GetRndInt delegateRndInt = () =>
             {
                 Random rnd = new Random();
-                return rnd.Next(0, 13);
+                return rnd.Next(0, 10);
             };
 
             // Define the array of delegates.
-            GetRndInt[] ArrDelegates = new GetRndInt[19];
+            GetRndInt[] ArrDelegates = new GetRndInt[598];
 
             // Init the array of delegates.
             for (int i = 0; i < ArrDelegates.Length; i++)
@@ -31,16 +31,19 @@
             ArryaDelegate AvgArray = (ArrDelegates) =>
             {
                 int sum = 0;
+                int delegResult = 0;
 
                 // Call delegates from the array.
                 for (int i = 0; i < ArrDelegates.Length; i++)
                 {
-                    sum += ArrDelegates[i].Invoke();
-
-                    Console.Write($"Result from delegate №{i} = {ArrDelegates[i].Invoke()}\n");
+                    delegResult = ArrDelegates[i].Invoke();
+                    sum += delegResult;
+                    Console.Write($"Result from delegate №{i} = {delegResult}\t Sum = {sum}\n");
                 }
 
-                Console.WriteLine($"Sum = {sum}, Avg = { sum / ArrDelegates.Length:F2}");
+                Console.WriteLine(new string ('=',42));
+ 
+                Console.WriteLine($"Sum = {sum}, Avg = {(float)sum / ArrDelegates.Length:F2}");
             };
 
             // Call the anonymous method of array of delegates.

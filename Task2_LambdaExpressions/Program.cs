@@ -14,17 +14,13 @@
             #endregion
 
             // Instance the class delegates and define lambda expressions as the delegates.
-            Add Add;
-            Add = (operand1, operand2) => { return operand1 + operand2; };
+            Add Add = (operand1, operand2) => { return operand1 + operand2; };
 
-            Sub Sub;
-            Sub = (operand1, operand2) => { return operand1 - operand2; };
+            Sub Sub = (operand1, operand2) => { return operand1 - operand2; };
 
-            Mul Mul;
-            Mul = (operand1, operand2) => { return operand1 * operand2; };
+            Mul Mul = (operand1, operand2) => { return operand1 * operand2; };
 
-            Div Div;
-            Div = (operand1, operand2) =>
+            Div Div = (operand1, operand2) =>
             {
                 if (operand2 != 0)
                 { return operand1 / operand2; }
